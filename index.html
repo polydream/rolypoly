@@ -61,15 +61,14 @@
             if (separator) {
                 const parts = rawParams.split(separator);
                 videoId = parts[0];
-                
-                // Ищем параметр start=...
+
                 const searchParams = new URLSearchParams(parts[1]);
                 if (searchParams.has('start')) {
                     startSeconds = searchParams.get('start');
                 }
             }
 
-            let embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`;
+            let embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
             if (startSeconds) {
                 embedUrl += `&start=${startSeconds}`;
             }
